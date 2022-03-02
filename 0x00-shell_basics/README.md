@@ -11,4 +11,9 @@ Shell basics manipulation exercises are stored here
 * **2-bring_me_home** changes the working directory to the user's home directory
 * **3-listfiles** dispays current directory contents in a long format
 * **4-lismorefiles** displays current directory, including hidden files(starting with .) and use the long format
+* **5-listfilesdigitonly** displays current directory contents
+    * Long format
+    * with user and group IDs displayed numercally
+    * And hidden files (strting with.)
+
 
