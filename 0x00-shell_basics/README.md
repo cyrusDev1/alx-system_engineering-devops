@@ -21,4 +21,5 @@ Shell basics manipulation exercises are stored here
 * **9-firstdirdeletion** detetes the directory my_first_directory that is in the /tmp directory
 * **10-back** changes the working directory to the directory to the previous one
 * **11-lists** lists all files in the current directory and the parent of the working directory and the /boot directory in long format
+* **12-file_type** prints the type of the file named iamafile. The file iamafile will be in the /tmp directory when we will run your script
 
