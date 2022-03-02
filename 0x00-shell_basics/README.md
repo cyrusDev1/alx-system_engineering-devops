@@ -17,4 +17,5 @@ Shell basics manipulation exercises are stored here
     * And hidden files (strting with.)
 * **6-firstdirectory** creates a directory named my_first_directory in the /tmp/ directory
 * **7-movethatfile** move the file betty from /tmp/ to tmp/my_first_directory
+* **8-firstdelete** move the file betty
 
