@@ -8,12 +8,12 @@
 # Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
 
 action(){
-    if [ $1 -eq 2 ]; then
+    if [ "$1" -eq 2 ]; then
         echo "Y U no love me?!"
-    elif [ $1 -eq 15 ]; then
+    elif [ "$1" -eq 15 ]; then
         echo "I hate the kill command"
         exit
-    elif [ $1 -eq 3 ]; then
+    elif [ "$1" -eq 3 ]; then
         rm /var/run/myscript.pid
         exit
     fi
