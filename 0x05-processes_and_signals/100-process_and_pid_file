@@ -10,6 +10,7 @@
 action(){
     if [ "$1" -eq 2 ]; then
         echo "Y U no love me?!"
+        exit
     elif [ "$1" -eq 15 ]; then
         echo "I hate the kill command"
         exit
