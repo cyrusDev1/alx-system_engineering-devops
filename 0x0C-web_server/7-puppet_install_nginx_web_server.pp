@@ -14,11 +14,13 @@ package { 'nginx':
  
 exec { 'chmod www folder':
   command => 'chmod -R 755 /var/www',
+    path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+
 }
 
 
 file { '/var/www/html/index.html':
-    content => 'Hello World!',
+    content => 'Hello World!\n',
 }
 
 file { 'Nginx default file':
@@ -44,4 +46,6 @@ file { 'Nginx default file':
 
 exec { 'restart service':
   command => 'service nginx restart',
+  path    => '/usr/bin:/usr/sbin:/bin',
+
 }
