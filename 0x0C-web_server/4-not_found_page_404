@@ -9,7 +9,8 @@
 
 apt-get -y update
 apt-get -y install nginx
-
+ufw allow 'Nginx HTTP'
+chmod -R 755 /var/www
 echo "Hello World!" > /var/www/html/index.html
 echo "Ceci n'est pas une page\n" > /var/www/html/404.html
 
