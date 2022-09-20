@@ -6,7 +6,7 @@ package { 'nginx':
 file _line { 'Nginx default file':
     ensure => 'present',
     path   => '/etc/nginx/sites-available/default',
-    after  => 'server_name _;',
+    after  => 'listen 80 default_server;',
     line   => "\n\tlocation /redirect_me {\n\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4\n\t}",
 }
 
