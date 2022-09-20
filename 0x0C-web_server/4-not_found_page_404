@@ -41,4 +41,9 @@ config=\
 }"
 echo "$config" > /etc/nginx/sites-available/default
 
-service nginx restart
+if [ "$(pgrep nginx)" -le 0 ];
+then
+    service nginx start
+else
+    service nginx restart
+fi;
