@@ -13,11 +13,11 @@ apt-get install -y nginx
 echo "Hello World!" > /var/www/html/index.html
 
 printf %s "server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+    listen                  80 default_server;
+    listen                  [::]:80 default_server;
 
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
+    root                    /var/www/html;
+    index                   index.html index.htm index.nginx-debian.html;
 
     server_name _;
 
@@ -29,6 +29,7 @@ printf %s "server {
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
     }
 
-}" > /etc/nginx/sites-enabled/default
+}
+" > /etc/nginx/sites-enabled/default
 
 service nginx restart
