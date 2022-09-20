@@ -3,7 +3,7 @@
 # using Puppet instead of Bash. To save time and effort, you should
 # also include resources in your orm a 301 redirect when querying /redirect_me.
 
-exec { 'updating packages'
+exec { 'updating packages':
     command => 'apt-get -y update',
     path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
@@ -12,7 +12,7 @@ package { 'nginx':
     ensure => installed,
 }
 
-file { '/var/www/html/index.nginx-debian.html':
+file { '/var/www/html/index.html':
     content => 'Hello World!',
 }
 
