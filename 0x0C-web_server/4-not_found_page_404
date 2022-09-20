@@ -13,10 +13,11 @@ apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.html
 echo "Ceci n'est pas une page\n" > /var/www/html/404.html
 
-printf %s "server {
-    listen 80;
+config=\
+"server {
+    listen 80 default_server;
     listen [::]:80 default_server;
-    root   root      /var/www/html;
+           root      /var/www/html;
     index index.html index.htm;
 
     server_name _;
@@ -37,6 +38,7 @@ printf %s "server {
         internal;
     }
 
-}" > /etc/nginx/sites-enabled/default
+}"
+echo "$config" > /etc/nginx/sites-available/default
 
 service nginx restart
