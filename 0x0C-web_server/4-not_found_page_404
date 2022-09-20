@@ -6,29 +6,26 @@
 # As an answer file, write a Bash script that configures a new Ubuntu machine to respect
 # above requirements (this script will be run on the server itself)
 # You can’t use systemctl for restarting nginx
+apt-get update
+apt-get install -y nginx
 
-apt-get -y update
-apt-get -y install nginx
-
+touch /var/www/html/index.html /var/www/html/404.html
 echo "Hello World!" > /var/www/html/index.html
-echo "Ceci n'est pas une page\n" > /var/www/html/404.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
 
 printf %s "server {
     listen 80;
     listen [::]:80 default_server;
-    root   root      /var/www/html;
-    index index.html index.htm;
-
+    root   root   /var/www/html/;
+    index  index.html index.htm;
     location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
     }
-
     error_page 404 /404.html;
-    location = /404.html{
-        root /var/www/html;
+    location /404 {
+        root /var/www/html/;
         internal;
     }
-
-}" > /etc/nginx/sites-enabled/default
+}" > /etc/nginx/sites-available/default
 
 service nginx restart
