@@ -7,7 +7,7 @@ file_line { 'Nginx default file':
     ensure => 'present',
     path   => '/etc/nginx/sites-available/default',
     after  => 'server_name _;',
-    line   => "\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4\n\t}",
+    line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
 }
 
 file { '/var/www/html/index.html':
