@@ -7,8 +7,8 @@
 # above requirements (this script will be run on the server itself)
 # You can’t use systemctl for restarting nginx
 
-apt-get update
-apt-get install -y nginx
+apt-get -y update
+apt-get -y install nginx
 
 echo "Hello World!" > /var/www/html/index.html
 echo "Ceci n'est pas une page" > /var/www/html/404.html
