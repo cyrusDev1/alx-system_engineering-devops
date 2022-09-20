@@ -9,7 +9,7 @@ exec { 'updating packages':
 }
 
 package { 'nginx':
-    ensure => installed,
+    ensure => 'installed',
 }
 
 file { '/var/www/html/index.html':
@@ -23,5 +23,5 @@ file_line { 'configure redirection':
 }
 
 service { 'nginx':
-    ensure => running,
+    ensure => 'running',
 }
