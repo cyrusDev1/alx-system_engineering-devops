@@ -11,6 +11,11 @@ exec { 'updating packages':
 package { 'nginx':
     ensure => 'installed',
 }
+ 
+exec { 'chmod www folder':
+  command => 'chmod -R 755 /var/www',
+}
+
 
 file { '/var/www/html/index.html':
     content => 'Hello World!',
@@ -39,5 +44,4 @@ file { 'Nginx default file':
 
 exec { 'restart service':
   command => 'service nginx restart',
-  path    => '/usr/bin:/usr/sbin:/bin',
 }
