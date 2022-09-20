@@ -11,7 +11,13 @@ exec { 'updating packages':
 package { 'nginx':
     ensure => 'installed',
 }
- 
+
+exec { 'allow HTTP':
+  command => "ufw allow 'Nginx HTTP'",
+  path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+  onlyif  => '! dpkg -l nginx | egrep \'îi.*nginx\' > /dev/null 2>&1',
+}
+
 exec { 'chmod www folder':
   command => 'chmod -R 755 /var/www',
     path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
