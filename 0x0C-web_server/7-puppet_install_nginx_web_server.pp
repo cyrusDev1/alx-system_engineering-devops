@@ -1,10 +1,5 @@
 # install nginx  (w/ Puppet)
 
-exec { 'updating packages':
-    command => 'apt-get -y update',
-    path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
-}
-
 package { 'nginx':
     ensure => 'installed',
 }
