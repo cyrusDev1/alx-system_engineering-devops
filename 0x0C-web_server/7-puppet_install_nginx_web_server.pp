@@ -53,5 +53,9 @@ file { 'Nginx default file':
 exec { 'restart service':
   command => 'service nginx restart',
   path    => '/usr/bin:/usr/sbin:/bin',
+}
 
+service { 'nginx':
+  ensure  => running,
+  require => Package['nginx'],
 }
