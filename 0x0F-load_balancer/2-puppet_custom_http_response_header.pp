@@ -16,6 +16,7 @@ file_line { 'Nginx http headers':
     path => '/etc/nginx/nginx.conf',
     after => 'ssl_prefer_server_ciphers on;',
     line => "\n\tadd_header X-Served-By $HOSTNAME;\n",
+    require => Package['nginx'],
 }
 
 file { '/var/www/html/index.html':
