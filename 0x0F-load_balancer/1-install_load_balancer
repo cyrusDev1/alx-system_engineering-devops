@@ -2,7 +2,7 @@
 # install and configure HAproxy load balancer
 
 apt-get -y install --no-install-recommends software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-2.6
+add-apt-repository ppa:vbernat/haproxy-2.6
 apt-get -y install haproxy=2.6.\*
 
 printf %s "
