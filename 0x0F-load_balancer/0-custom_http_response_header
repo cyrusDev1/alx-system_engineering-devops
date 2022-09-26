@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# configure server 02
+
+MESSAGE="Hello World!"
+REDIRECTION="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+MESSAGEERR="Ceci n'est pas une page"
+REDIRECTIONERR="\n\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}\n"
+HEADER="\n\tadd_header X-Served-By $HOSTNAME;\n"
+apt-get -y update
+apt-get -y install nginx
+echo "$MESSAGE" > /var/www/html/index.html
+echo "$MESSAGEERR" > /var/www/html/404.html
+sed -i "37i\ $REDIRECTION" /etc/nginx/sites-available/default
+sed -i "37i\ $REDIRECTIONERR" /etc/nginx/sites-available/default
+sed -i "37i\ $HEADER" /etc/nginx/nginx.conf
+service nginx restart
