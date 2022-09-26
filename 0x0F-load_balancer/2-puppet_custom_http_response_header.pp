@@ -13,8 +13,8 @@ file_line { 'Nginx default file':
 
 file_line { 'Nginx http headers':
     ensure => 'present',
-    path => '/etc/nginx/nginx.conf',
-    after => 'ssl_prefer_server_ciphers on;',
+    path => '/etc/nginx/sites-available/default',
+    after => 'server_name _;',
     line => "\n\tadd_header X-Served-By $hostname;\n",
     require => Package['nginx'],
 }
