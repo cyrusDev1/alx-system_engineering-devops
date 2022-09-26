@@ -8,6 +8,7 @@ file_line { 'Nginx default file':
     path   => '/etc/nginx/sites-available/default',
     after  => 'server_name _;',
     line   => "\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n",
+    require => Package['nginx'],
 }
 
 file_line { 'Nginx http headers':
