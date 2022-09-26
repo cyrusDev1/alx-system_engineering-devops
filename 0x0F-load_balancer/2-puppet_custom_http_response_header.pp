@@ -1,9 +1,29 @@
-# automate the task of creating a custom HTTP header response, but with Puppet.
+# install nginx  (w/ Puppet)
+package { 'nginx':
+    ensure => installed,
+}
 
-exec { 'command':
-  command  => 'apt-get -y update;
-  apt-get -y install nginx;
-  sudo sed -i "/listen 80 default_server;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default;
-  service nginx restart',
-  provider => shell,
+file_line { 'Nginx default file':
+    ensure => 'present',
+    path   => '/etc/nginx/sites-available/default',
+    after  => 'server_name _;',
+    line   => "\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n",
+    require => Package['nginx'],
+}
+
+file_line { 'Nginx http headers':
+    ensure => 'present',
+    path => '/etc/nginx/sites-available/default',
+    after => 'listen 80 default_server;',
+    line => "\n\tadd_header X-Served-By $HOSTNAME;\n",
+    require => Package['nginx'],
+}
+
+file { '/var/www/html/index.html':
+    content => 'Hello World!',
+}
+
+service { 'nginx':
+  ensure  => running,
+  require => Package['nginx'],
 }
