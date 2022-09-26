@@ -13,7 +13,7 @@ file_line { 'Nginx default file':
 file_line { 'Nginx http headers':
     ensure => 'present',
     path => '/etc/nginx/nginx.conf',
-    after => 'ssl_prefer_server_ciphers on;'
+    after => 'ssl_prefer_server_ciphers on;',
     line => "\n\tadd_header X-Served-By $HOSTNAME;\n",
 }
 
