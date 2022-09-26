@@ -15,7 +15,6 @@ backend hbnb_back
         mode http
         balance roundrobin
         cookie SERVERUSED insert indirect nocache
-        option httpchk
         server 4577-web-01 18.205.96.48:80 check cookie 4577-web-01
         server 4577-web-02 3.231.218.163:80 check cookie 4577-web-02
 " >> /etc/haproxy/haproxy.cfg
