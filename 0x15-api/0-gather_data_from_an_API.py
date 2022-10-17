@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Returns information for a given employee ID."""
+"""Returns information for a given employee ID.
+"""
 import requests
 import sys
 
