@@ -12,7 +12,8 @@ if __name__ == "__main__":
     tasks = []
     data = {}
     for user in users:
-        url_todo = "https://jsonplaceholder.typicode.com/users/{}/todos".format(user.get('id'))
+        url_todo = "https://jsonplaceholder.typicode.com/users/{}/todos".format
+        (user.get('id'))
         response_todo = requests.get(url_todo)
         todo = response_todo.json()
         for task in todo:
