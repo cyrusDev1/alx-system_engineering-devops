@@ -12,7 +12,7 @@ if __name__ == "__main__":
     data = {}
     for user in users:
         id = user.get('id')
-        url_todo = f"https://jsonplaceholder.typicode.com/users/{id}/todos"
+        url_todo = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
         response_todo = requests.get(url_todo)
         todo = response_todo.json()
         tasks = []
