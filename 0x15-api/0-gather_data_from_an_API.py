@@ -1,14 +1,10 @@
 #!/usr/bin/python3
-"""
-Write a Python script that, using this REST API, for a given employee ID,
-returns information about his/her TODO list progress.
-"""
+"""Returns information for a given employee ID."""
 import requests
 import sys
 
 
 if __name__ == "__main__":
-
 	id = sys.argv[1]
 	url_user = "https://jsonplaceholder.typicode.com/users/{}".format(id)
 	url_todo = "https://jsonplaceholder.typicode.com/todos"
