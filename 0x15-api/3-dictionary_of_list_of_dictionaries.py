@@ -7,12 +7,13 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    url_user = "https://jsonplaceholder.typicode.com/users"
+    url = "https://jsonplaceholder.typicode.com"
+    url_user = url + "/users"
     users = requests.get(url_user).json()
     data = {}
     for user in users:
         id = user.get('id')
-        url_todo = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
+        url_todo = url + "/users/{}/todos".format(id)
         response_todo = requests.get(url_todo)
         todo = response_todo.json()
         tasks = []
