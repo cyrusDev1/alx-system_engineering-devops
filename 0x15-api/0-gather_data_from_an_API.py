@@ -4,7 +4,6 @@
 import requests
 import sys
 
-
 if __name__ == "__main__":
 	id = sys.argv[1]
 	url_user = "https://jsonplaceholder.typicode.com/users/{}".format(id)
