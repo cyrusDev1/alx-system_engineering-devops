@@ -5,15 +5,15 @@ import requests
 
 
 def top_ten(subreddit):
-    """print first 10 hot posts listed for a given subreddit"""
+    """Print first 10 hot posts listed for a given subreddit"""
     url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
         "User-Agent": "cyrusDev@alx-holbertonschool"
     }
     params = {
-        "limit": 1
+        "limit": 10
     }
-    response = requests.get(url, headers=headers, allow_redirects=False)
+    response = requests.get(url, headers=headers, params=params, allow_redirects=False)
     if response.status_code == 404:
         print("None")
         return
